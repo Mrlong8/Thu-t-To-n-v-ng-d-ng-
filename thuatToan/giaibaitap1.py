@@ -1,12 +1,32 @@
-a, b, c, d = map(int ,input().split())
-# c, d = map(int, input().split())
+a, b, c = map(int, input().split())
 
-result = min(b,d) - max(a,c)
+dental = b * b - 4 * a * c
 
-if result < 0 :
-    print(0)
+if a == 0:
+    if b == 0:
+        if c == 0:
+            print("vo so nghiem")
+        else:
+            print("vo nghiem")
+    else:
+        x = -c / b
+        print(f"{x:.3f}")
+
+elif dental < 0:
+    print("vo nghiem")
+
+elif dental == 0:
+    x = -b / (2 * a)
+    print(f"{x:.3f}")
+
 else:
-    print(result)
+    d = dental ** 0.5
 
+    x1 = (-b - d) / (2 * a)
+    x2 = (-b + d) / (2 * a)
 
-# print("YES" if a == c == b + d else "NO")
+    if x1 > x2:
+        x1, x2 = x2, x1
+
+    print(f"{x1:.3f}")
+    print(f"{x2:.3f}")
