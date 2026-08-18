@@ -1,32 +1,28 @@
 a, b, c = map(int, input().split())
 
-dental = b * b - 4 * a * c
+d = b * b - 4 * a * c
 
-if a == 0:
-    if b == 0:
-        if c == 0:
-            print("vo so nghiem")
-        else:
-            print("vo nghiem")
+if d < 0:
+    print(0)
+elif d == 0:
+    t = -b/(2*a)
+    if t < 0:
+        print(0)
+    elif t == 0:
+        print(1)
     else:
-        x = -c / b
-        print(f"{x:.3f}")
-
-elif dental < 0:
-    print("vo nghiem")
-
-elif dental == 0:
-    x = -b / (2 * a)
-    print(f"{x:.3f}")
-
+        print(2)
 else:
-    d = dental ** 0.5
+    d = d ** 0.5
 
-    x1 = (-b - d) / (2 * a)
-    x2 = (-b + d) / (2 * a)
+    t1 = (-b - d) / (2 * a)
+    t2 = (-b + d) / (2 * a)
+    count = 0
 
-    if x1 > x2:
-        x1, x2 = x2, x1
+    if(t1 > 0):count += 2
+    elif t1 == 0: count += 1
 
-    print(f"{x1:.3f}")
-    print(f"{x2:.3f}")
+    if(t2 > 0):count += 2
+    elif t2 == 0: count += 1
+
+    print(count)
