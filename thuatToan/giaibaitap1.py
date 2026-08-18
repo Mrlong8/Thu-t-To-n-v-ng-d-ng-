@@ -1,8 +1,8 @@
-# a, b = map(int ,input().split())
-n = input()
+a, b = map(int ,input().split())
+c, d = map(int, input().split())
 
-if 0 <= n <= 9:
-    print("YES")
+if a < b : a,b = b,a
+if c < d : c,d = d,c
 
-else:
-    print("NO")
+
+print("YES" if a == c == b + d else "NO")
